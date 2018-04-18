@@ -1,0 +1,55 @@
+﻿@font-face{
+   font-family: gotham-light;
+   src: url('../fonts/gotham_light_regular.otf');
+}
+
+@font-face{
+   font-family: gotham-bold;
+   src: url('../fonts/gotham_bold.otf');
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input, select, textarea {
+    max-width: 280px;
+}
+
+/* Reset for bootstrap  */
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0 !important;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    font-family: gotham-light !important;
+}
+
+b{
+    font-family: gotham-bold !important;
+}
+* {
+    outline: none;
+    /* color: white; */
+    /* font-family: Roboto; */
+}
+
+/*Hack to fix the exceeding paddings (http://stackoverflow.com/questions/23768152/using-container-fluid-within-bootstrap-cause-horizontal-scrollbar)*/
+.container-fluid {
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.no-margin {
+    margin: 0px !important;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.transparentInput{
+    border: transparent !important;
+    background: transparent !important;
+    pointer-events: none;
+}

@@ -1,0 +1,49 @@
+<html ng-app="evolucionalApp">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+    <link rel="icon" href="img/favicon.ico" />
+    <title>Evolucional</title>
+
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/font-awesome.css" rel="stylesheet" />
+
+    <!-- LESS Runtime build CSS (testing purpose only :x)  -->
+    <link rel="stylesheet/less" type="text/css" href="css/less/variables.less" />
+    <link rel="stylesheet/less" type="text/css" href="css/less/mixings.less" />
+    <link rel="stylesheet/less" type="text/css" href="css/less/main.less" />
+    <script> less = { env: "production" } </script>
+    <script src="js/less.js"></script>
+
+    <!-- jQuery & jQueryUI-->
+    <script src="js/jquery-3.0.0.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.js"></script>
+
+    <!-- Angular -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/angular-chart.js"></script>    
+    <script src="js/app/constants.js"></script>
+    <script src="js/app/app.js"></script>
+    <script src="js/app/config.js"></script>
+    <script src="js/app/directives.js"></script>
+    <script src="js/app/filters.js"></script>
+
+    <!-- Angular Controllers, Services, Models e Directives -->
+    <script src="js/app/controllers/mainController.js"></script>
+    <script src="js/app/services/mainService.js"></script>
+
+</head>
+
+<body>
+    <!-- Main view with dynamic route content -->
+    <div ng-view=ng-view class="view"></div>
+</body>
+
+</html>

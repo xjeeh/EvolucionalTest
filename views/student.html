@@ -1,0 +1,64 @@
+﻿<div ng-init="getStudents()" class="studentPage">
+
+    <div class="filters clearfix">
+
+        <p class="mainTitle">Filters</p>
+
+        <div class="col-xs-12 col-md-4 filter degree">
+            <p class="title">Degree</p>
+            <select class="select" ng-model="filter.degreeName">
+                <option value="">All</option>                   
+                <option ng-repeat="item in model.degrees">{{item.name}}</option>              
+            </select>
+        </div>
+
+        <div class="col-xs-12 col-md-4 filter class">
+            <p class="title">Class</p>
+            <select class="select" ng-model="filter.className">
+                <option value="">All</option>                                   
+                <option ng-repeat="item in model.classes">{{item.name}}</option>              
+            </select>
+        </div>
+        <div class="col-xs-12 col-md-4 pie">
+            <p class="title">Students per degree</p>
+            <canvas id="pie" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-options="options">
+            </canvas>
+        </div>
+    </div>
+
+
+    <div class="students clearfix">
+
+        <p class="mainTitle">Students
+            <button class="btn createStudents" ng-click="student.create()">
+            <i class="fa fa-plus"></i>
+            Create 300 new students
+        </button>
+        </p>
+
+        <div class="student col-xs-12 col-md-6" ng-repeat="item in model.students | filter: {degreeName : filter.degreeName, className: filter.className}">
+            <div class="wrapper list">
+                <p class="ra"><b>RA: </b>{{item.ra}}</p>
+                <p class="name"><b>Name: </b> {{item.name}}</p>
+                <p class="degree"><b>Degree: </b>{{item.degreeName}}</p>
+                <p class="class"><b>Class: </b>{{item.className}}</p>
+                <button class="btn edit" ng-click="student.startEdit(item, $index)"><i class="fa fa-pencil"></i>Edit</button>
+            </div>
+
+            <div class="wrapper editing" ng-show="student.isEditing && student.currentEditing.id == item.id">
+                <p class="ra"><b>RA: </b>{{student.currentEditing.ra}}</p>
+                <p class="name"><b>Name: </b><input ng-model="student.currentEditing.name" /></p>
+                <p class="degree"><b>Degree: </b>{{student.currentEditing.degreeName}}</p>
+                <p class="class"><b>Class: </b>
+                    <select class="select" ng-model="student.currentEditing.className">
+                        <option ng-repeat="auxClass in model.classes">{{auxClass.name}}</option>
+                    </select>
+                </p>
+                <button class="btn edit" ng-click="student.finishEdit(item)"><i class="fa fa-floppy-o"></i>Save</button>
+            </div>
+
+        </div>
+        <div class="no-itens" ng-if="(model.students | filter: {degreeName : filter.degreeName, className: filter.className}).length == 0">No itens available for current filter criteria</div>
+    </div>
+
+</div>
